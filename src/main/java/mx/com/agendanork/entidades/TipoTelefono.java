@@ -9,11 +9,40 @@ import javax.persistence.Id;
 @Entity(name="TIPO_TELEFONO")
 public class TipoTelefono implements Serializable{
 
+	
+	private static final long serialVersionUID = 6011463111135533336L;
+
 	@Id
 	private Long idTipoTel;
 	
-	@Column()
+	@Column(name="NOMBRE")
 	private String nombre;
 	
+	@Column(name="DESCRIPCION")
 	private String descripcion;
+
+	public Long getIdTipoTel() {
+		return idTipoTel;
+	}
+
+	public void setIdTipoTel(Long idTipoTel) {
+		this.idTipoTel = idTipoTel;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
 }

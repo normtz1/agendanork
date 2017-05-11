@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 @Entity(name = "TELEFONO")
 public class Telefono implements Serializable{ 
@@ -15,7 +16,8 @@ public class Telefono implements Serializable{
 
 	private String telefono;
 	
-	private TipoTelefono
+	@JoinColumn()
+	private TipoTelefono idTipoTel;
 	
 	
 }
