@@ -9,23 +9,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 
 @Embeddable
-public class TelefonoPK implements Serializable{
-	
-	private static final long serialVersionUID = -6001157694619627120L;
-	
-	@Column(name = "ID_TELEFONO")
+public class EmailPK implements Serializable{
+
+	private static final long serialVersionUID = -6072294766280351558L;
+
+	@Column(name = "ID_EMAIL")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idTelefono;
+	private Long idEmail;
 	
 	@JoinColumn(name = "ID_AGENDA", referencedColumnName = "ID_AGENDA")
-	private Agenda idAgenda;	
+	private Agenda idAgenda;
 
-	public Long getIdTelefono() {
-		return idTelefono;
+	public Long getIdEmail() {
+		return idEmail;
 	}
 
-	public void setIdTelefono(Long idTelefono) {
-		this.idTelefono = idTelefono;
+	public void setIdEmail(Long idEmail) {
+		this.idEmail = idEmail;
 	}
 
 	public Agenda getIdAgenda() {

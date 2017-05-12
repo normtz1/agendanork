@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name="TIPO_TELEFONO")
@@ -13,6 +14,8 @@ public class TipoTelefono implements Serializable{
 	private static final long serialVersionUID = 6011463111135533336L;
 
 	@Id
+	@Column(name = "ID_TIPO_TEL")
+	@GeneratedValue
 	private Long idTipoTel;
 	
 	@Column(name="NOMBRE")

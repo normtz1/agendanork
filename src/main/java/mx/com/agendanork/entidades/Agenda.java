@@ -3,11 +3,20 @@ package mx.com.agendanork.entidades;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "AGENDA")
 public class Agenda implements Serializable{
 	
 	private static final long serialVersionUID = -3231115737354429773L;
@@ -15,48 +24,37 @@ public class Agenda implements Serializable{
 	private static int n = 0;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "ID_AGENDA")
 	private Long idAgenda;
 	
+	@Column(name = "NOMBRE")
 	private String nombre;
 	
+	@Column(name = "AP_PATERNO")
 	private String apPaterno;
 	
+	@Column(name = "AP_MATERNO")
 	private String apMaterno;
 	
+	@Column(name = "DIRECCION")
 	private String direccion;
 	
+	@Column(name = "FECHA_CUMPLE")
 	private Date fechaCumple;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="id.idAgenda")
 	private List<Telefono> listTelefonos = new ArrayList<Telefono>();
 	
-	private  Date date;
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="id.idAgenda")
+	private List<Email> listEmails = new ArrayList<Email>();
 
-	private double price;
-
+	@Column(name = "ANOTACIONES")
+	private String anotaciones;
 	
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(long t) {
-		this.date.setTime(t);
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public String getMarket() {
-		return market;
-	}
-
-	public String getInstrument() {
-		return instrument;
-	}
+	
+	
+	
 
 	@Override
 	public String toString() {
